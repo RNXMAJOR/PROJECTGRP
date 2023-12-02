@@ -2,16 +2,16 @@ from flask import Flask, flash, request, redirect, render_template, send_from_di
 import os
 from pydub import AudioSegment
 import time
-# import matplotlib.pyplot as plt
-# import librosa
-# import librosa.display
-# import numpy as np
-# from PIL import Image
-# from keras.preprocessing.image import img_to_array
-# from keras.models import load_model
+import matplotlib.pyplot as plt
+import librosa
+import librosa.display
+import numpy as np
+from PIL import Image
+from keras.preprocessing.image import img_to_array
+from keras.models import load_model
 
 #os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-# model = load_model('bird_classification_model.h5')
+model = load_model('bird_classification_model.h5')
 
 
 UPLOAD_FOLDER = 'uploads'
