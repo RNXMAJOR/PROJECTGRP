@@ -30,6 +30,7 @@ BIRDS = {0: 'aldfly', 1: 'ameavo', 2: 'amebit', 3: 'amecro', 4: 'amegfi', 5: 'am
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.secret_key = 'supersecretkey'
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -136,4 +137,4 @@ def uploaded_file(filename):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(debug=True)
