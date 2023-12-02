@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Birdsong Audio Identification Application</title>
+  </head>
+  <body>
+    <h1>Upload and Play Audio</h1>
+    <p>Please select a <strong>10-second segment</strong> from the desired audio file. If no segment is chosen, the model will automatically process the <strong>first 10 seconds</strong> of the file.</p>
+
+    <form method=post enctype=multipart/form-data>
+      <input class="form-control" type="file" name=file accept=".wav , .mp3">
+      <input type=submit value=Predict>
+    </form>
+    {% if filename %}
+      <h2>Audio Playback:</h2>
+      <audio controls>
+          <source src="{{ url_for('uploaded_file', filename=filename) }}" type="audio/wav">
+          Your browser does not support the audio element.
+      </audio>
+      <p class="text-center"> Specie guess is: <strong>{{bird}}</strong></p>
+    {% endif %}
+  </body>
+</html>
