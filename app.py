@@ -10,7 +10,7 @@ from pydub import AudioSegment
 # from keras.preprocessing.image import img_to_array
 # from keras.models import load_model
 
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+#os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 # model = load_model('bird_classification_model.h5')
 
 
@@ -28,7 +28,7 @@ BIRDS = {0: 'aldfly', 1: 'ameavo', 2: 'amebit', 3: 'amecro', 4: 'amegfi', 5: 'am
 
 
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 def allowed_file(filename):
@@ -124,7 +124,7 @@ def upload_file():
             # predicted_label = np.argmax(prediction, axis=1)
             # pred = predicted_label[0] - 1 #offset
             # bird = BIRDS[pred]
-             bird = BIRDS[0]
+            bird = BIRDS[0]
 
 
         return render_template('index.html', filename=trimmed_audio_filename, bird=bird)
